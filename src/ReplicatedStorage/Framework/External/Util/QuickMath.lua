@@ -14,33 +14,17 @@
 
 ]]--
 
-
 local Math = {}
 
-local Ofs = 2 ^ 52
-
-function Math:FindPercentage(Value, MaxValue)
-    return math.round(Value / MaxValue * 100)
-end
-
 function Math:isEven(num: number): boolean
-	local hasRemainder = math.fmod(num, 2)
-	local isEven
-
-	if hasRemainder == 0 then
-		isEven = true
-	else
-		isEven = false
-	end
-
-	return isEven
+	return (num % 2) == 0
 end
 
 
 function Math.median(...: number): number
 	local Numbers = {...}
 
-	if type(...) == "table" then
+	if typeof(...) == "table" then
 		Numbers = (...)
 	end
 
@@ -80,7 +64,7 @@ end
 function Math:FindRange(...: number): number -- Measure of variation
 	local Numbers = {...}
 
-	if type(...) == "table" then
+	if typeof(...) == "table" then
 		Numbers = (...)
 	end
 
@@ -92,7 +76,7 @@ end
 function Math:FindMean(...: number): number
 	local Numbers = {...}
 
-	if type(...) == "table" then
+	if typeof(...) == "table" then
 		Numbers = (...)
 	end
 
@@ -106,27 +90,6 @@ function Math:FindMean(...: number): number
 
 	Average = Sum / #Numbers
 	return Average
-end
-
-
-function Math.Abs(Number: number): number
-	if Number > 0 then 
-		return Number 
-	else 
-		return -Number 
-	end
-end
-
-function Math.Round(Number : number): number -- this part is created by MrMouse2405 why why why why
-	if Math.Abs(Number) > Ofs then 
-		return Number
-	end
-
-	return if Number < 0 then Number - Ofs + Ofs else Number + Ofs - Ofs
-end
-
-function Math:FindSquareRoot(Value)
-    return math.floor(math.sqrt(Value))
 end
 
 function Math:ListFactors(n)
@@ -146,8 +109,8 @@ function Math:ListMultiples(n, amount)
 	local num = 1
 	repeat
 		local result = num * n
-		table.insert(Multiples,math.floor(result))
-		num = num + 1
+		table.insert(Multiples, math.floor(result))
+		num += 1
 		wait()
 	until #Multiples == amount
 	return Multiples
