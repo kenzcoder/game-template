@@ -1,5 +1,10 @@
 --[[
-
+	    	
+	░█▀▀█ ░█─░█ ▀█▀ ░█▀▀█ ░█─▄▀ 　 ░█▀▄▀█ ─█▀▀█ ▀▀█▀▀ ░█─░█ ░█▀▀▀█ 
+	░█─░█ ░█─░█ ░█─ ░█─── ░█▀▄─ 　 ░█░█░█ ░█▄▄█ ─░█── ░█▀▀█ ─▀▀▀▄▄ 
+	─▀▀█▄ ─▀▄▄▀ ▄█▄ ░█▄▄█ ░█─░█ 　 ░█──░█ ░█─░█ ─░█── ░█─░█ ░█▄▄▄█
+	
+		
 	Able to solve percentages, mean, round numbers, find the square root, list factors + mutiples, 
 	list the range for numbers, list median for a number and if the number is even
 
@@ -8,6 +13,7 @@
 	k_nz on discord
 
 ]]--
+
 
 local Math = {}
 
