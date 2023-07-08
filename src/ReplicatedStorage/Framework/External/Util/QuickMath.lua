@@ -1,25 +1,14 @@
---[[
-	    	
-	░█▀▀█ ░█─░█ ▀█▀ ░█▀▀█ ░█─▄▀ 　 ░█▀▄▀█ ─█▀▀█ ▀▀█▀▀ ░█─░█ ░█▀▀▀█ 
-	░█─░█ ░█─░█ ░█─ ░█─── ░█▀▄─ 　 ░█░█░█ ░█▄▄█ ─░█── ░█▀▀█ ─▀▀▀▄▄ 
-	─▀▀█▄ ─▀▄▄▀ ▄█▄ ░█▄▄█ ░█─░█ 　 ░█──░█ ░█─░█ ─░█── ░█─░█ ░█▄▄▄█
-	
-		
-	Able to solve percentages, mean, round numbers, find the square root, list factors + mutiples, 
-	list the range for numbers, list median for a number and if the number is even
+local Math = setmetatable({}, {__index = math})
 
-
-	Created by @k2_nz
-	k_nz on discord
-
-]]--
-
-local Math = {}
+Math.tau = math.pi * 2
 
 function Math:isEven(num: number): boolean
 	return (num % 2) == 0
 end
 
+function Math.percent(x: number, y: number): number
+	return (x / 100) * y
+end
 
 function Math.median(...: number): number
 	local Numbers = {...}
@@ -97,7 +86,7 @@ function Math:ListFactors(n)
 	for m = 1,n do
 		for i= 0, n do
 			if m*i == n then
-				table.insert(factors,m.."*"..i)
+				table.insert(factors, `{m}*{i}`)
 			end
 		end
 	end
@@ -111,7 +100,7 @@ function Math:ListMultiples(n, amount)
 		local result = num * n
 		table.insert(Multiples, math.floor(result))
 		num += 1
-		wait()
+		task.wait()
 	until #Multiples == amount
 	return Multiples
 end
